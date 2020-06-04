@@ -21,9 +21,26 @@ class CardCollectionViewCell: UICollectionViewCell {
         //Keep track of the card that gets passed in
         self.card = card //self refers to the CardColletionViewCell class
         
+        //CollectionView cacheing will mess with the alpha of the matched images, the following is the fix
+        if card.isMatched == true {
+            
+            //if the card is matched make sure they stay removed, make the ImageViews visible
+            backImageView.alpha = 0
+            frontImageView.alpha = 0
+            
+            return
+        }else{
+            
+            //if the is card unmatched make sure they stay visible, make the ImageViews invisible
+            backImageView.alpha = 1
+            frontImageView.alpha = 1
+            
+        }
+        
         frontImageView.image = UIImage(named: card.imageName)
         
-        //CollectionView cacheing sometimes will mess with which ImageView is on top, the following is the fix
+        //CollectionView cacheing will mess with which ImageView is on top, the following is the fix
+        
         //Determine if the card is in a flipped up state ur flipped down state
         if card.isFlipped == true{
             
@@ -49,8 +66,27 @@ class CardCollectionViewCell: UICollectionViewCell {
     //to flip back to the back face of the card
     func flipBack(){
         
-        UIView.transition(from: frontImageView, to: backImageView, duration: 0.3, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
+        //Flip the card back at exactly now + 0.5s asynchronously (so that the user has time to see)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+            
+            UIView.transition(from: self.frontImageView, to: self.backImageView, duration: 0.3, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
+            
+        }
         
+    }
+    
+    func remove(){
+        
+        //Remove both imageViews from being visible
+        
+        backImageView.alpha = 0
+        
+        //Animate the frontImageView disappearing
+        UIView.animate(withDuration: 0.3, delay: 0.5, options: .curveEaseOut, animations: {
+            
+            self.frontImageView.alpha = 0
+            
+        }, completion: nil)
     }
     
 }
