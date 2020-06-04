@@ -11,7 +11,7 @@ import Foundation
 class Card{
     
     var imageName = ""
-    var isFlipped = ""
-    var isMatched = ""
+    var isFlipped = false
+    var isMatched = false
     
 }
