@@ -68,6 +68,10 @@ class LogInViewController: UIViewController {
                     //There weren't any errors
                     print("Sign Up succesful!")
                     
+                    //Hide the error label in case it was not hidden
+                    self.errorLabel.isHidden = false
+                    
+                    //Segue to the menu screen
                     self.performSegue(withIdentifier: "logInToMenuSegue", sender: nil)
                     
                 }
@@ -105,6 +109,10 @@ class LogInViewController: UIViewController {
                             //There weren't any errors
                             print("Log In succesful!")
                             
+                            //Hide the error label in case it was not hidden
+                            self.errorLabel.isHidden = false
+                            
+                            //Segue to the menu screen
                             self.performSegue(withIdentifier: "logInToMenuSegue", sender: nil)
                             
                         }

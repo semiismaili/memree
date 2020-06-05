@@ -22,9 +22,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var firstFlippedCardIndex: IndexPath?
     
-    var timer: Timer?
-    var milliseconds: Float = 30 * 1000 //10 seconds
+    // TODO: Change game duration after testing is done
     
+    var timer: Timer?
+    var milliseconds: Float = 50 * 1000 //10 seconds
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidAppear(_ animated: Bool) {
         
         SoundManager.playSound(.shuffle)
-    
+        
     }
     
     //MARK: ~ UICollectionView Protocol Methods
@@ -195,49 +196,101 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func checkGameEnded(){
         
+        //This function gets called every millisecond and after each successful match
+        
         //Determine if there are any cards unmatched
         var isWon = true
         
         for card in cardArray{
             
+            //Check all the cards
             if card.isMatched == false {
+                
+                //Break if at least one card is unmatched
                 isWon = false
                 break
             }
             
         }
         
-        //Messaging variables
-        var title = ""
-        var message = ""
-        
+        //Check if the game is won, lost, or still goin
         if isWon == true {
             
-            //If not, then the user has won, stop the timer
+            //All the cards are matched, the user has won, stop the timer, game has ended
+            
             if milliseconds > 0{
                 timer?.invalidate()
             }
             
-            title = "Congratulations!"
-            message = "You've won"
+            //See if this win had a high score for the user
+            
+            if milliseconds > PFUser.current()?["score"] as! Float{
+                
+                //This is a higher score, save it
+                saveTheScore()
+                
+            }else{
+                
+                //This is not a higher score
+                
+                //Display info on alert
+                showAlertAndSegueToLeaderBoard("You've done better!", "You scored \(milliseconds) points!")
+                
+            }
+            
             
         }else{
             
-            //If there are unmatched cards, check if there's any time left
+            //There are unmatched cards, check if there's any time left
+            
             if milliseconds > 0 {
+                
+                //There's still time, game hasn't ended, so return
                 return
             }
             
-            title = "Game Over!"
-            message = "You've lost"
+            //Time's up, game has ended
+            
+            //Display info on alert
+            showAlertAndSegueToLeaderBoard("Game Over!", "You've lost")
             
         }
         
-        showAlert(title, message)
-        
     }
     
-    func showAlert(_ title:String,_ message:String){
+    func saveTheScore(){
+        
+        //Set the score for current user
+        PFUser.current()?["score"] = milliseconds
+        
+        //Save the score for the current user
+        PFUser.current()?.saveInBackground(block: { (success, error) in
+            if error != nil {
+                var errorMessage = "Update Failed - Try Again"
+                
+                if let newError =  error as NSError?{
+                    if let detailError = newError.userInfo["error"] as? String {
+                        errorMessage =  detailError
+                    }
+                }
+                
+                print (errorMessage)
+                
+            }else{
+                
+                //Log the score if there update was successful
+                print("Score: \(self.milliseconds) has been saved to the server")
+                
+                //Display info on alert
+                self.showAlertAndSegueToLeaderBoard("New High Score!", "You scored \(self.milliseconds) points!")
+                
+            }
+        })
+    }
+    
+    func showAlertAndSegueToLeaderBoard(_ title:String,_ message:String){
+        
+        //TODO: Segue to Leaderboard
         
         //Show won/lost message
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -249,6 +302,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         present(alert, animated: true, completion: nil)
         
     }
+    
     
 }//End of ViewController class
 
