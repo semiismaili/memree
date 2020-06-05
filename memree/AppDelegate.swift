@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.initialize(with: parseConfig)
         
+        //Command that starts the local parse-dashboard
+        //parse-dashboard --dev --appId eepeedee-memree --masterKey meesterkee-memr ee --serverURL "http://memree-server.herokuapp.com/parse" --appName memree-server --host localhost --port 4040
         
         return true
     }
