@@ -289,13 +289,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func showAlertAndSegueToLeaderBoard(_ title:String,_ message:String){
-        
-        //TODO: Segue to Leaderboard
-        
+
         //Show won/lost message
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        //Action that segues to leaderboardViewController
+        let alertAction = UIAlertAction(title: "Back to Menu", style: .default, handler: {(alert: UIAlertAction!) in
+            
+            self.dismiss(animated: true, completion: nil)
+            
+        })
         
         alert.addAction(alertAction)
         

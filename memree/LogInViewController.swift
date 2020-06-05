@@ -74,6 +74,30 @@ class LogInViewController: UIViewController {
                     //Segue to the menu screen
                     self.performSegue(withIdentifier: "logInToMenuSegue", sender: nil)
                     
+                    //Add an initial score to the user
+                    PFUser.current()?["score"] = 0
+                    
+                    //Save the score for the current user
+                    PFUser.current()?.saveInBackground(block: { (success, error) in
+                        if error != nil {
+                            var errorMessage = "Update Failed - Try Again"
+                            
+                            if let newError =  error as NSError?{
+                                if let detailError = newError.userInfo["error"] as? String {
+                                    errorMessage =  detailError
+                                }
+                            }
+                            
+                            print (errorMessage)
+                            
+                        }else{
+                            
+                            //Log the score if there update was successful
+                            print("Score: 0 has been saved to the server")
+                            
+                        }
+                    })
+                    
                 }
             })
             
@@ -115,6 +139,8 @@ class LogInViewController: UIViewController {
                             //Segue to the menu screen
                             self.performSegue(withIdentifier: "logInToMenuSegue", sender: nil)
                             
+                            //No need to set the score to 0 here because that has to happen while the user signs up
+                            
                         }
                         
                     }
@@ -135,10 +161,10 @@ class LogInViewController: UIViewController {
             
             //There's a logged in user
             self.performSegue(withIdentifier: "logInToMenuSegue", sender: nil)
-
+            
         }
     }
-
+    
     
     
     //Button Action to change the mode
@@ -162,14 +188,5 @@ class LogInViewController: UIViewController {
         
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

@@ -17,6 +17,8 @@
 		4890E36C24880358006FE158 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890E36B24880356006FE158 /* Card.swift */; };
 		4890E36E24880B05006FE158 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890E36D24880B05006FE158 /* CardCollectionViewCell.swift */; };
 		48B1CEA7248AA55C006AD476 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1CEA6248AA55C006AD476 /* LogInViewController.swift */; };
+		48B1CEA9248AEB2A006AD476 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1CEA8248AEB2A006AD476 /* LeaderboardViewController.swift */; };
+		48B1CEAB248AF267006AD476 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1CEAA248AF267006AD476 /* LeaderboardTableViewCell.swift */; };
 		48D4FE802487EA0A00CA7EC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D4FE7F2487EA0A00CA7EC1 /* AppDelegate.swift */; };
 		48D4FE822487EA0A00CA7EC1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D4FE812487EA0A00CA7EC1 /* SceneDelegate.swift */; };
 		48D4FE842487EA0A00CA7EC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D4FE832487EA0A00CA7EC1 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 		4890E36B24880356006FE158 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		4890E36D24880B05006FE158 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		48B1CEA6248AA55C006AD476 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		48B1CEA8248AEB2A006AD476 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		48B1CEAA248AF267006AD476 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		48D4FE7C2487EA0A00CA7EC1 /* memree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D4FE7F2487EA0A00CA7EC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48D4FE812487EA0A00CA7EC1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				4890E36D24880B05006FE158 /* CardCollectionViewCell.swift */,
 				481A1DED24899E5000A5409F /* SoundManager.swift */,
 				48B1CEA6248AA55C006AD476 /* LogInViewController.swift */,
+				48B1CEA8248AEB2A006AD476 /* LeaderboardViewController.swift */,
+				48B1CEAA248AF267006AD476 /* LeaderboardTableViewCell.swift */,
 				48D4FE852487EA0A00CA7EC1 /* Main.storyboard */,
 				48D4FE882487EA0F00CA7EC1 /* Assets.xcassets */,
 				48D4FE8A2487EA0F00CA7EC1 /* LaunchScreen.storyboard */,
@@ -250,9 +256,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				48D4FE842487EA0A00CA7EC1 /* ViewController.swift in Sources */,
+				48B1CEAB248AF267006AD476 /* LeaderboardTableViewCell.swift in Sources */,
 				4890E36A248801C0006FE158 /* CardModel.swift in Sources */,
 				4890E36C24880358006FE158 /* Card.swift in Sources */,
 				48D4FE802487EA0A00CA7EC1 /* AppDelegate.swift in Sources */,
+				48B1CEA9248AEB2A006AD476 /* LeaderboardViewController.swift in Sources */,
 				48B1CEA7248AA55C006AD476 /* LogInViewController.swift in Sources */,
 				4890E36E24880B05006FE158 /* CardCollectionViewCell.swift in Sources */,
 				481A1DEE24899E5000A5409F /* SoundManager.swift in Sources */,
