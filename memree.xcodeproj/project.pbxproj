@@ -22,6 +22,7 @@
 		48D4FE872487EA0A00CA7EC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D4FE852487EA0A00CA7EC1 /* Main.storyboard */; };
 		48D4FE892487EA0F00CA7EC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D4FE882487EA0F00CA7EC1 /* Assets.xcassets */; };
 		48D4FE8C2487EA0F00CA7EC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D4FE8A2487EA0F00CA7EC1 /* LaunchScreen.storyboard */; };
+		6672B04B507415FF621CB3B7 /* Pods_memree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D31D401D7C5D87B6D005CF /* Pods_memree.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,9 @@
 		48D4FE882487EA0F00CA7EC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48D4FE8B2487EA0F00CA7EC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48D4FE8D2487EA0F00CA7EC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B37FE57FA6D89FAFA1FD9AA5 /* Pods-memree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memree.release.xcconfig"; path = "Target Support Files/Pods-memree/Pods-memree.release.xcconfig"; sourceTree = "<group>"; };
+		C2D31D401D7C5D87B6D005CF /* Pods_memree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C89603F5B5FC2DE096521011 /* Pods-memree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memree.debug.xcconfig"; path = "Target Support Files/Pods-memree/Pods-memree.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +54,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				481A1DEC24899DFF00A5409F /* AVFoundation.framework in Frameworks */,
+				6672B04B507415FF621CB3B7 /* Pods_memree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				481A1DEB24899DFF00A5409F /* AVFoundation.framework */,
+				C2D31D401D7C5D87B6D005CF /* Pods_memree.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -81,6 +87,7 @@
 				48D4FE7E2487EA0A00CA7EC1 /* memree */,
 				48D4FE7D2487EA0A00CA7EC1 /* Products */,
 				481A1DEA24899DFF00A5409F /* Frameworks */,
+				F4358903B0650138250A74E1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +118,16 @@
 			path = memree;
 			sourceTree = "<group>";
 		};
+		F4358903B0650138250A74E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C89603F5B5FC2DE096521011 /* Pods-memree.debug.xcconfig */,
+				B37FE57FA6D89FAFA1FD9AA5 /* Pods-memree.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48D4FE902487EA0F00CA7EC1 /* Build configuration list for PBXNativeTarget "memree" */;
 			buildPhases = (
+				45C9B04F616B9A140A1665D1 /* [CP] Check Pods Manifest.lock */,
 				48D4FE782487EA0A00CA7EC1 /* Sources */,
 				48D4FE792487EA0A00CA7EC1 /* Frameworks */,
 				48D4FE7A2487EA0A00CA7EC1 /* Resources */,
+				F6F3FC90A84BB8652EE04CD5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,6 +199,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45C9B04F616B9A140A1665D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-memree-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6F3FC90A84BB8652EE04CD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memree/Pods-memree-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memree/Pods-memree-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memree/Pods-memree-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		48D4FE782487EA0A00CA7EC1 /* Sources */ = {
@@ -334,6 +395,7 @@
 		};
 		48D4FE912487EA0F00CA7EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C89603F5B5FC2DE096521011 /* Pods-memree.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -352,6 +414,7 @@
 		};
 		48D4FE922487EA0F00CA7EC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B37FE57FA6D89FAFA1FD9AA5 /* Pods-memree.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -27,6 +28,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let testObject = PFObject(className: "Testing")
+        testObject["foo"] = "bar"
+        testObject.saveInBackground()
         
         cardArray = model.getCards()
         
