@@ -1,5 +1,4 @@
-
-***memree*** is a time-racig memory-card game built for IOS using Swift
+***memree*** is a time-racing memory-card game built for IOS using Swift
 
 Additional Frameworks and Pods:
 Parse
