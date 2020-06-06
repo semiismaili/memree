@@ -13,3 +13,5 @@ Tested for IOS 13.4,
 *username:* semi3 *pass:* memree
 *username:* semi4 *pass:* memree
 *username:* semi5 *pass:* memree
+
+*The free tier heroku parse server is slow and might take a while to initially respong if it's in a sleeping state*
